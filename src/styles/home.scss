@@ -1,0 +1,35 @@
+.container-welcome { 
+   display:flex;
+   flex-flow: column;
+   justify-content: center;
+   height: 100vh ;
+   border: 1px solid black;
+}
+
+.container-genders {
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.container-soyhombre {
+    display:flex;
+    width: 50%;
+    background: #ffac33;
+    color: white;
+    font-weight: bold;
+    font-size: 40;
+    justify-content: center;
+}
+
+.container-soymujer {
+    display:flex;
+    width: 50%;
+    background: #904ccc;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+}
+

@@ -1,15 +1,23 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
+import { Link } from "react-router-dom";
+import Menu from "../component/menu";
 
 export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
+	<div className="container-welcome py-auto">
+		<div className="text-center">
+			<h1>Estoy list@ para recibir The Box</h1>
+		</div>
+		<div className="container-genders">
+			<div className="container-soyhombre">
+				<Link to="/creaperfil">Soy hombre</Link>
+			</div>
+			<div className="container-soymujer">
+				<Link to="/creaperfil">Soy Mujer</Link>
+			</div>
+		</div>
+		<div className="contactus-center">
+			<h2>Contáctanos</h2>
+		</div>
 	</div>
 );
