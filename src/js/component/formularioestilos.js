@@ -1,74 +1,83 @@
 import React from "react";
 
 const Formularioestilos = props => {
+	function funcionestilos() {
+		var lookchoice = document.forms[0];
+		var i;
+		for (i = 0; i < 6; i++) {
+			if (lookchoice[i].checked) {
+				Estilos = Estilos + lookchoice[i].value;
+			}
+		}
+	}
 	return (
 		<form>
 			<div className="row formulario-estilos-body">
 				<div className="column">
-					<img src="look1.jpg" style="width 100%" />
+					<img src="look1.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look1" />
 						<i className="form-checkbox-button" />
 						<span>Look 1</span>
 					</label>
 
-					<img src="look2.jpg" style="width 100%" />
+					<img src="look2.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look2" />
 						<i className="form-checkbox-button" />
 						<span>Look 2</span>
 					</label>
 
-					<img src="look3.jpg" style="width 100%" />
+					<img src="look3.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look3" />
 						<i className="form-checkbox-button" />
 						<span>Look 3</span>
 					</label>
 
-					<img src="look4.jpg" style="width 100%" />
+					<img src="look4.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look4" />
 						<i className="form-checkbox-button" />
 						<span>Look 4</span>
 					</label>
 
-					<img src="look5.jpg" style="width 100%" />
+					<img src="look5.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look5" />
 						<i className="form-checkbox-button" />
 						<span>Look 5</span>
 					</label>
 
-					<img src="look6.jpg" style="width 100%" />
+					<img src="look6.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look6" />
 						<i className="form-checkbox-button" />
 						<span>Look 6</span>
 					</label>
 
-					<img src="look7.jpg" style="width 100%" />
+					<img src="look7.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look7" />
 						<i className="form-checkbox-button" />
 						<span>Look 7</span>
 					</label>
 
-					<img src="look8.jpg" style="width 100%" />
+					<img src="look8.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look8" />
 						<i className="form-checkbox-button" />
 						<span>Look 8</span>
 					</label>
 
-					<img src="look9.jpg" style="width 100%" />
+					<img src="look9.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look9" />
 						<i className="form-checkbox-button" />
 						<span>Look 9</span>
 					</label>
 
-					<img src="look10.jpg" style="width 100%" />
+					<img src="look10.jpg" />
 					<label className="checkbox-label">
 						<input type="checkbox" name="look10" />
 						<i className="form-checkbox-button" />
@@ -219,21 +228,12 @@ const Formularioestilos = props => {
 						<span>Look 30</span>
 					</label>
 				</div>
-
+				<br />
 				<input type="button" onClick="funcionestilos()" value="Estilos preferidos" />
+				<br />
 			</div>
 		</form>
 	);
 };
-
-function funcionestilos() {
-	var lookchoice = document.forms[0];
-	var i;
-	for (i = 0; i < 6; i++) {
-		if (lookchoice[i].checked) {
-			Estilos = Estilos + lookchoice[i].value;
-		}
-	}
-}
 
 export default Formularioestilos;
