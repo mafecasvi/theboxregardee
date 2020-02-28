@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 
 function Formulario(props) {
+	const { store, actions } = useContext(Context);
+	const [formInfo, setFormInfo] = useState({
+		usario: null,
+		correo: null,
+		apellido: null,
+		fecha: null,
+		celular: null,
+		direccion: null,
+		redes_sociale: null
+	});
 	return (
 		<div className="container">
 			<div className="row">
@@ -15,6 +26,8 @@ function Formulario(props) {
 									name="username"
 									placeholder="elige un nombre de usuario"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, usuario: e.target.value })}
+									value={formInfo.usario}
 								/>
 							</div>
 
@@ -26,6 +39,8 @@ function Formulario(props) {
 									name="email"
 									placeholder="tu correo electrónico"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, email: e.target.value })}
+									value={formInfo.email}
 								/>
 							</div>
 
@@ -37,6 +52,8 @@ function Formulario(props) {
 									name="name"
 									placeholder="primer y segundo nombre"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, name: e.target.value })}
+									value={formInfo.name}
 								/>
 							</div>
 
@@ -48,6 +65,8 @@ function Formulario(props) {
 									name="lastname"
 									placeholder="apellidos"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, apellido: e.target.value })}
+									value={formInfo.apellido}
 								/>
 							</div>
 
@@ -59,6 +78,8 @@ function Formulario(props) {
 									name="birthdate"
 									placeholder="dd/mm/yyyy"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, fecha: e.target.value })}
+									value={formInfo.fecha}
 								/>
 							</div>
 
@@ -70,6 +91,8 @@ function Formulario(props) {
 									name="mobilenumber"
 									placeholder="041XXXXXXXX"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, celular: e.target.value })}
+									value={formInfo.celular}
 								/>
 							</div>
 
@@ -83,6 +106,8 @@ function Formulario(props) {
 									name="address"
 									placeholder="tu dirección, lo más concreta posible... sería genial si incluyes location"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, direccion: e.target.value })}
+									value={formInfo.direccion}
 								/>
 							</div>
 
@@ -94,6 +119,8 @@ function Formulario(props) {
 									name="socialmedia"
 									placeholder="marcas e influencers que sean de tu estilo"
 									required="required"
+									onChange={e => setFormInfo({ ...formInfo, redes_sociale: e.target.value })}
+									value={formInfo.redes_sociale}
 								/>
 							</div>
 
@@ -656,6 +683,7 @@ function Formulario(props) {
 								type="button"
 								className="btn btn-success btn-block"
 								value="Enviar toda la info de mi perfil"
+								onClick={() => actions.addInfo(formInfo)}
 							/>
 						</div>
 					</form>

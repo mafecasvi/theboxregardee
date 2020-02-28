@@ -15,6 +15,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			addInfo: info => {
+				let valuesArray = Object.values(info);
+				let count = 0;
+				for (let i = 0; i < valuesArray.length; i++) {
+					if (valuesArray[i] != null) {
+						++count;
+					}
+				}
+				if (count < 5) {
+					alert(`You need to fill at least 5 fields, you need ${5 - count} more fields.`);
+				} else alert("User added successfully");
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
