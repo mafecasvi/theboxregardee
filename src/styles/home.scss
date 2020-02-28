@@ -17,19 +17,23 @@
 .container-soyhombre {
     display:flex;
     width: 50%;
+    height:4rem;
     background: #ffac33;
     color: white;
     font-weight: bold;
     font-size: 40;
     justify-content: center;
+    vertical-align: center;
 }
 
 .container-soymujer {
     display:flex;
     width: 50%;
+    height:4rem;
     background: #904ccc;
     color: white;
     font-weight: bold;
     justify-content: center;
+    vertical-align: center;
 }
 

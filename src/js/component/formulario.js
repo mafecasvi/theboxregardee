@@ -1,11 +1,180 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Formulario(props) {
+function validate(username, email, name, lastname,
+    birthdate, mobilenumber, address,
+    socialmedia, sizetop, sizebottom,
+    sizeshoes, height, waist,
+    armsuser, shouldersuser, torsouser, hipsuser,legsuser,
+    budgettop, budgetbottom, budgetshoes) {
+    const errors = [];
+
+    if (enviarFormulario.username === "") {
+        errors.push("Escribe un nombre de usuario");
+    }
+    if (enviarFormulario.email.length < 5) {
+        errors.push("Escribe un correo electrónico");
+    }
+    if (enviarFormulario.name.length < 2) {
+        errors.push("Falta tu nombre");
+    }
+    if (enviarFormulario.lastname.length < 2) {
+        errors.push("Falta tu apellido");
+    }
+    if (enviarFormulario.birthdate === "") {
+        errors.push("Falta tu fecha de nacimiento");
+    }
+    if (enviarFormulario.mobilenumber.length < 7) {
+        errors.push("Falta tu número de celular");
+    }
+    if (enviarFormulario.address.length < 12) {
+        errors.push("Escribe tu dirección completa");
+    }
+    if (enviarFormulario.sizetop === "") {
+        errors.push("¿Cuáles son tus talla en partes de arriba?");
+    }
+    if (enviarFormulario.sizebottom === "") {
+        errors.push("¿Cuáles son tus talla en partes de abajo?");
+    }
+    if (enviarFormulario.sizeshoes === "") {
+        errors.push("Falta tu talla de zapatos");
+    }
+    if (enviarFormulario.height === "") {
+        errors.push("Escribe tu altura");
+    }
+    if (enviarFormulario.waist === "") {
+        errors.push("¿Cuánto mide tu cintura?");
+    }
+    if (enviarFormulario.armsuser === "") {
+        errors.push("¿Cómo son tus brazos?");
+    }
+    if (enviarFormulario.shouldersuser === "") {
+        errors.push("¿Cómo son tus brazos?");
+    }
+    if (enviarFormulario.torsouser === "") {
+        errors.push("¿Cómo es tu torso?");
+    }
+    if (enviarFormulario.hipsuser === "") {
+        errors.push("¿Cómo son tus caderas?");
+    }
+    if (enviarFormulario.legsuser === "") {
+        errors.push("Falta un dato sobre el largo de tus piernas");
+    }
+    if (enviarFormulario.budgettop === "") {
+        errors.push("Necesitamos conocer un presupuesto estimado");
+    }
+    if (enviarFormulario.budgetbottom === "") {
+        errors.push("Necesitamos conocer un presupuesto estimado");
+    }
+    if (enviarFormulario.budgetshoes === "") {
+        errors.push("Necesitamos conocer un presupuesto estimado");
+    }
+    return errors;
+}
+
+function Formulario() {
+	const [fiveLooks, setFiveLooks] = useState(0);
+	const [enviarFormulario, setEnviarFormulario] = useState({
+		username: "",
+		email: "",
+		name: "",
+		lastname: "",
+		birthdate: "",
+		mobilenumber: "",
+		address: "",
+		socialmedia: "",
+		sizetop: "",
+		sizebottom: "",
+		sizeshoes: "",
+		igaccount: "",
+		height: "",
+		waist: "",
+		armsuser: "",
+		shouldersuser: "",
+		torsouser: "",
+		hipsuser: "",
+		legsuser: "",
+		look1: "",
+		look2: "",
+		look3: "",
+		look4: "",
+		look5: "",
+		look6: "",
+		look7: "",
+		look8: "",
+		look9: "",
+		look10: "",
+		look11: "",
+		look12: "",
+		look13: "",
+		look14: "",
+		look15: "",
+		look16: "",
+		look17: "",
+		look18: "",
+		look19: "",
+		look20: "",
+		look21: "",
+		look22: "",
+		look23: "",
+		look24: "",
+		look25: "",
+		look26: "",
+		look27: "",
+		look28: "",
+		look29: "",
+		look30: "",
+		budgettop: "",
+		budgetbottom: "",
+		budgetshoes: "",
+		budgetaccesories: ""
+	});
+	//guarda enel state los datos del formulario
+	const handleFormulario = e => {
+		setEnviarFormulario({
+			...enviarFormulario,
+			[e.target.name]: e.target.value
+		});
+	};
+	//esta funcion cuenta los looks
+	const handleChecked = prueba => {
+		if (prueba) {
+			setFiveLooks(fiveLooks + 1);
+			console.log(fiveLooks, prueba);
+		} else {
+			setFiveLooks(fiveLooks - 1);
+			console.log(fiveLooks, prueba);
+		}
+    };
+    
+ 
+
+	//funcion que guarda el formulario
+	const guardarFormulario = e => {
+		e.preventDefault();
+        const {username, email, name, lastname,
+			birthdate, mobilenumber, address,
+			socialmedia, sizetop, sizebottom,
+			sizeshoes, height, waist,
+			armsuser, shouldersuser, torsouser, hipsuser,legsuser,
+			budgettop, budgetbottom, budgetshoes} = this.state;
+		//debes verificar si todos los campos estan llenos si no debes poner un error
+        const errors
+        
+
+		//debes verificar si solo se seleccionaron 5 looks si no debes poner un error
+
+		if (!setFiveLooks <= 6) {
+			return;
+		}
+	};
+
 	return (
 		<div className="container">
+			<h4>Usamos esta info para armar The Box lo más ajustada posible a tus necesidades</h4>
+			<br />
 			<div className="row">
 				<div className="col-12">
-					<form>
+					<form onSubmit={guardarFormulario}>
 						<div className="formulariogeneral-formato">
 							<div className="form-group form-short-text">
 								<label className="label-title">Nombre de usuario</label>
@@ -14,7 +183,7 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="username"
 									placeholder="elige un nombre de usuario"
-									required="required"
+									onChange={handleFormulario}
 								/>
 							</div>
 
@@ -25,7 +194,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="email"
 									placeholder="tu correo electrónico"
-									required="required"
 								/>
 							</div>
 
@@ -36,7 +204,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="name"
 									placeholder="primer y segundo nombre"
-									required="required"
 								/>
 							</div>
 
@@ -47,7 +214,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="lastname"
 									placeholder="apellidos"
-									required="required"
 								/>
 							</div>
 
@@ -58,7 +224,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="birthdate"
 									placeholder="dd/mm/yyyy"
-									required="required"
 								/>
 							</div>
 
@@ -69,20 +234,18 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="mobilenumber"
 									placeholder="041XXXXXXXX"
-									required="required"
 								/>
 							</div>
 
 							<div className="form-group form-long-text">
 								<label htmlFor="address" className="label-title">
-									Direccion
+									Dirección
 								</label>
 								<textarea
 									id="address"
 									className="form-control input-format"
 									name="address"
 									placeholder="tu dirección, lo más concreta posible... sería genial si incluyes location"
-									required="required"
 								/>
 							</div>
 
@@ -93,7 +256,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="socialmedia"
 									placeholder="marcas e influencers que sean de tu estilo"
-									required="required"
 								/>
 							</div>
 
@@ -104,7 +266,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="sizetop"
 									placeholder="tallas que usas en blusas, franelas, sweaters"
-									required="required"
 								/>
 							</div>
 
@@ -115,7 +276,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="sizebottom"
 									placeholder="tallas que usas en pantalones y jeans"
-									required="required"
 								/>
 							</div>
 
@@ -126,7 +286,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="sizeshoes"
 									placeholder="5, 6, 7, 35, 36, 37, etc."
-									required="required"
 								/>
 							</div>
 
@@ -137,7 +296,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="igaccount"
 									placeholder="@miperfil"
-									required="required"
 								/>
 							</div>
 
@@ -148,7 +306,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="height"
 									placeholder="en cm, por ej. 165"
-									required="required"
 								/>
 							</div>
 
@@ -159,7 +316,6 @@ function Formulario(props) {
 									className="form-control input-format"
 									name="waist"
 									placeholder="en cm, por ej. 75"
-									required="required"
 								/>
 							</div>
 
@@ -167,11 +323,7 @@ function Formulario(props) {
 								<label htmlFor="arms" className="label-title">
 									Brazos
 								</label>
-								<select
-									id="arms"
-									className="form-control input-format"
-									name="armsuser"
-									required="required">
+								<select id="arms" className="form-control input-format" name="armsuser">
 									<option value="short">Cortos, a veces las mangas me quedan largas</option>
 									<option value="average">Average</option>
 									<option value="long">Elegantemente largos</option>
@@ -186,8 +338,7 @@ function Formulario(props) {
 									id="shoulders"
 									className="form-control input-format"
 									type="text"
-									name="shouldersuser"
-									required="required">
+									name="shouldersuser">
 									<option value="narrow">Estrecha</option>
 									<option value="average">Promedio</option>
 									<option value="wide">Ancha, de nadador pro</option>
@@ -198,12 +349,7 @@ function Formulario(props) {
 								<label htmlFor="torso" className="label-title">
 									Torso
 								</label>
-								<select
-									id="torso"
-									className="form-control input-format"
-									type="text"
-									name="torsouser"
-									required="required">
+								<select id="torso" className="form-control input-format" type="text" name="torsouser">
 									<option value="short">Un poco corto</option>
 									<option value="average">Average</option>
 									<option value="long">Un poco largo</option>
@@ -214,12 +360,7 @@ function Formulario(props) {
 								<label htmlFor="hips" className="label-title">
 									Caderas
 								</label>
-								<select
-									id="hips"
-									className="form-control input-format"
-									type="text"
-									name="hipsuser"
-									required="required">
+								<select id="hips" className="form-control input-format" type="text" name="hipsuser">
 									<option value="narrow">Estrechas</option>
 									<option value="average">Average</option>
 									<option value="wide">Un poco anchas</option>
@@ -230,12 +371,7 @@ function Formulario(props) {
 								<label htmlFor="legs" className="label-title">
 									Piernas
 								</label>
-								<select
-									id="legs"
-									className="form-control input-format"
-									type="text"
-									name="legsuser"
-									required="required">
+								<select id="legs" className="form-control input-format" type="text" name="legsuser">
 									<option value="short">Los pantalones siempre me quedan largos</option>
 									<option value="average">Los pantalones me quedan OK</option>
 									<option value="long">Los pantalones siempre me quedan cortos</option>
@@ -250,6 +386,7 @@ function Formulario(props) {
 						<div>
 							<div className="container row formulario-estilos-body">
 								<div className="column">
+									<h4>Elige los 5 looks que se parecen a ti</h4>
 									<img src="look1.jpg" />
 									<label className="checkbox-label">
 										<input
@@ -588,17 +725,11 @@ function Formulario(props) {
 								{/* <input type="button" value="Enviar estilos preferidos" /> */}
 								<br />
 							</div>
-
+							<h5>Ahora, hablemos de cuánto estás dispuest@ a pagar...</h5>
 							<div className="formulario-budget">
 								<div className="form-group">
 									<label className="label-title">Presupuesto partes de arriba</label>
-									<input
-										className="form-control"
-										type="text"
-										name="budgettop"
-										placeholder="en USD"
-										required="required"
-									/>
+									<input className="form-control" type="text" name="budgettop" placeholder="en USD" />
 								</div>
 
 								<div className="form-group">
@@ -608,7 +739,6 @@ function Formulario(props) {
 										type="text"
 										name="budgetbottom"
 										placeholder="en USD"
-										required="required"
 									/>
 								</div>
 
@@ -619,7 +749,6 @@ function Formulario(props) {
 										type="text"
 										name="budgetshoes"
 										placeholder="en USD"
-										required="required"
 									/>
 								</div>
 
@@ -630,7 +759,6 @@ function Formulario(props) {
 										type="text"
 										name="budgetbags"
 										placeholder="en USD"
-										required="required"
 									/>
 								</div>
 
@@ -641,7 +769,6 @@ function Formulario(props) {
 										type="text"
 										name="budgetaccesories"
 										placeholder="en USD"
-										required="required"
 									/>
 								</div>
 
@@ -653,7 +780,7 @@ function Formulario(props) {
 						<div className="button-submit">
 							<br />
 							<input
-								type="button"
+								type="submit"
 								className="btn btn-success btn-block"
 								value="Enviar toda la info de mi perfil"
 							/>
@@ -661,7 +788,6 @@ function Formulario(props) {
 					</form>
 				</div>
 			</div>
-			<br />
 		</div>
 	);
 }
